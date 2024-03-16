@@ -13,5 +13,8 @@ body
     font-family: Arial, sans-serif;   
     margin: 0;
     padding: 0;
-    background: linear-gradient(90deg, rgba(28,24,101,1) 0%, rgba(41,110,134,1) 44%, rgba(9,66,78,1) 100%);
+    background-image: url('./backgroundImage.gif');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position-y: center;
 }
