@@ -1,0 +1,36 @@
+:host{
+    align-self: stretch;
+}
+
+header{
+    width: 100%;
+}
+
+.nav-wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(90, 90, 189);
+}
+
+.nav-links{
+    display: flex;
+    gap: 1em;
+}
+
+.nav-links li{
+    list-style: none;
+    padding: 1em 2em;
+    border-radius: 5px;
+}
+
+.nav-links li:hover{
+    background-color: #8781aa;
+    border-radius: 20px;
+}
+
+.nav-links li a{
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+}
