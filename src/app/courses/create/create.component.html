@@ -1,30 +1,66 @@
 <div class="create-container">
     <h2>Create course</h2>
-    <form>
+    <form [formGroup]="createForm" (ngSubmit)="onSubmit()">
         <div>
             <label for="title">Title:</label>
-            <input type="text" id="title" name="title" required>
+            <input type="text" id="title" formControlName="title">
         </div>
+
+        <div *ngIf="createForm.get('title')?.touched">
+            <div *ngIf="createForm.get('title')?.errors?.['required']" style="color: red;">Title is required</div>
+            <div *ngIf="createForm.get('title')?.errors?.['minlength']" style="color: red;">Title must be at least 6 characters long</div>
+        </div>
+
         <div>
             <label for="lecture">Lecture:</label>
-            <input type="text" id="lecture" name="lecture" required>
+            <input type="text" id="lecture" formControlName="lecture">
         </div>
+
+        <div *ngIf="createForm.get('lecture')?.touched">
+            <div *ngIf="createForm.get('lecture')?.errors?.['required']" style="color: red;">Lecture is required</div>
+        </div>
+
         <div>
             <label for="description">Description:</label>
-            <input id="description" name="description" required>
+            <input id="description" formControlName="description">
         </div>
+
+        <div *ngIf="createForm.get('description')?.touched">
+            <div *ngIf="createForm.get('description')?.errors?.['required']" style="color: red;">Description is required</div>
+            <div *ngIf="createForm.get('description')?.errors?.['minlength']" style="color: red;">Description must be at least 10 characters long</div>
+        </div>
+
         <div>
             <label for="price">Price:</label>
-            <input type="number" id="price" name="price" required>
+            <input type="number" id="price" formControlName="price">
         </div>
+
+        <div *ngIf="createForm.get('price')?.touched">
+            <div *ngIf="createForm.get('price')?.errors?.['required']" style="color: red;">Price is required</div>
+            <div *ngIf="createForm.get('price')?.errors?.['min']" style="color: red;">Price must be at positive number</div>
+        </div>
+
         <div>
             <label for="img">Image URL:</label>
-            <input type="url" id="img" name="img" required>
+            <input type="url" id="img" formControlName="img">
         </div>
+
+        <div *ngIf="createForm.get('img')?.touched">
+            <div *ngIf="createForm.get('img')?.errors?.['required']" style="color: red;">Img is required</div>
+            <div *ngIf="createForm.get('img')?.errors?.['pattern']" style="color: red;">Invalid URL</div>
+        </div>
+
         <div>
-            <label for="duration">Duration:</label>
-            <input type="text" id="duration" name="duration" required>
+            <label for="duration">Duration (h):</label>
+            <input type="number" id="duration" formControlName="duration">
         </div>
-        <button type="submit">Create</button>
-    </form>    
+
+        <div *ngIf="createForm.get('duration')?.touched">
+            <div *ngIf="createForm.get('duration')?.errors?.['required']" style="color: red;">Duration is required</div>
+            <div *ngIf="createForm.get('duration')?.errors?.['min']" style="color: red;">Duration must be at positive number</div>
+        </div>
+
+        <button type="submit" [class.disabled]="createForm.invalid" [disabled]="createForm.invalid">Create</button>
+
+    </form>
 </div>

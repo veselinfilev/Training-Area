@@ -6,6 +6,7 @@ import { CatalogComponent } from './catalog/catalog.component';
 import { DetailsComponent } from './details/details.component';
 import { EditComponent } from './edit/edit.component';
 import { CreateComponent } from './create/create.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { CreateComponent } from './create/create.component';
   ],
   imports: [
     CommonModule,
-    CoursesRoutingModule
+    CoursesRoutingModule,
+    ReactiveFormsModule
   ]
 })
 export class CoursesModule { }
