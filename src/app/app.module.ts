@@ -10,6 +10,7 @@ import { RegisterComponent } from './register/register.component';
 import { HomeComponent } from './home/home.component';
 import { CoursesModule } from './courses/courses.module';
 import { ProfileComponent } from './profile/profile.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { ProfileComponent } from './profile/profile.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    CoursesModule
+    CoursesModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
