@@ -1348,7 +1348,8 @@
                 "description": "A course introducing the fundamentals of JavaScript programming, including syntax, variables, and basic operators.",
                 "price": 100,
                 "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/1200px-Unofficial_JavaScript_logo_2.svg.png",
-                "duration": 10
+                "duration": 10,
+                "_createdOn":1701429687378
             },
             "bdabf5e9-23be-40a1-9f14-9117b6702a9d": {
                 "_ownerId": "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
@@ -1357,7 +1358,8 @@
                 "description": "Exploring key concepts and methods in JavaScript, such as functions, objects, and arrays, to enhance programming skills.",
                 "price": 250,
                 "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/1200px-Unofficial_JavaScript_logo_2.svg.png",
-                "duration": 25
+                "duration": 25,
+                "_createdOn":1701428687378
             },
             "f859fc06-bd3e-4b86-aee0-64e5ad8b4f54": {
                 "_ownerId": "847ec027-f659-4086-8032-5173e2f9c93a",
@@ -1366,7 +1368,8 @@
                 "description": "Advanced topics such as functional programming, asynchronous programming, and modularity, which help create more complex JavaScript applications.",
                 "price": 400,
                 "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/1200px-Unofficial_JavaScript_logo_2.svg.png",
-                "duration": 40
+                "duration": 40,
+                "_createdOn":1701427687378
             },
             "0ecdfc78-74c7-4e9b-a546-2a165aa6f1f8": {
                 "_ownerId": "847ec027-f659-4086-8032-5173e2f9c93a",
@@ -1375,7 +1378,8 @@
                 "description": "Basics of Python programming, including data types, operators, and control structures, with a focus on simple algorithms and tasks.",
                 "price": 120,
                 "image": "https://developers.redhat.com/sites/default/files/styles/share/public/Python-01%20%282%29.png?itok=bApqv4pD",
-                "duration": 12
+                "duration": 12,
+                "_createdOn":1701426687378
             },
             "65e9f24b-1b5f-4c01-85b5-6eb0eeab8c08": {
                 "_ownerId": "35c62d76-8152-4626-8712-eeb96381bea8",
@@ -1384,7 +1388,8 @@
                 "description": "Exploring key concepts such as functions, lists, and conditional statements in Python to build strong programming foundations.",
                 "price": 300,
                 "image": "https://developers.redhat.com/sites/default/files/styles/share/public/Python-01%20%282%29.png?itok=bApqv4pD",
-                "duration": 30
+                "duration": 30,
+                "_createdOn":1701425687378
             },
             "ca3cc5a7-34f8-42cd-9327-d8f8a0e2a142": {
                 "_ownerId": "35c62d76-8152-4626-8712-eeb96381bea8",
@@ -1393,7 +1398,8 @@
                 "description": "Advanced exploration of techniques in Python, such as file handling, objects, and exception handling, to extend programming capabilities.",
                 "price": 500,
                 "image": "https://developers.redhat.com/sites/default/files/styles/share/public/Python-01%20%282%29.png?itok=bApqv4pD",
-                "duration": 50
+                "duration": 50,
+                "_createdOn":1701424687378
             },
             "ca3cc5a7-34f8-42cd-9327-d8f8a0e2a192": {
                 "_ownerId": "35c62d76-8152-4626-8712-eeb96381bea8",
@@ -1402,7 +1408,8 @@
                 "description": "Fundamentals of programming with Java, including classes, methods, and basic data structures, to familiarize oneself with the language and develop simple applications.",
                 "price": 150,
                 "image": "https://www.ade-technologies.com/blog/wp-content/uploads/2021/12/image-blog-revel-top-java-tools.jpg",
-                "duration": 15
+                "duration": 15,
+                "_createdOn":1701423687378
             },
             "a2b7ef14-6b99-4f24-87d8-9e5e0da4e272": {
                 "_ownerId": "847ec027-f659-4086-8032-5173e2f9c93a",
@@ -1411,7 +1418,8 @@
                 "description": "Exploring core concepts such as inheritance, interfaces, and collections in Java to create more complex programs with enhanced functionality.",
                 "price": 330,
                 "image": "https://www.ade-technologies.com/blog/wp-content/uploads/2021/12/image-blog-revel-top-java-tools.jpg",
-                "duration": 33
+                "duration": 33,
+                "_createdOn":1701422687378
             },
             "f8d9a3c1-5a46-48cf-8a85-3f90d6279c62": {
                 "_ownerId": "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
@@ -1420,7 +1428,8 @@
                 "description": "Exploring advanced topics in Java, such as multithreading, database capabilities, and web development, to develop a broader understanding and skills in the language.",
                 "price": 560,
                 "image": "https://www.ade-technologies.com/blog/wp-content/uploads/2021/12/image-blog-revel-top-java-tools.jpg",
-                "duration": 56
+                "duration": 56,
+                "_createdOn":1701429687378
             },
             "d45e61c3-8d54-4f97-93cc-6c817f06b71f": {
                 "_ownerId": "35c62d76-8152-4626-8712-eeb96381bea8",
@@ -1429,7 +1438,8 @@
                 "description": "Learning to create web pages with HTML and CSS, covering basics of content structuring and design styling.",
                 "price": 370,
                 "image": "https://miro.medium.com/v2/resize:fit:960/1*OlyP02fRFe8pEkJgb6vGTQ.png",
-                "duration": 37
+                "duration": 37,
+                "_createdOn":1701420687378
             }
         },
         buy: {}
