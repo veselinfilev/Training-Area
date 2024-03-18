@@ -1,15 +1,23 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { CoursesService } from '../courses.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-edit',
   templateUrl: './edit.component.html',
   styleUrls: ['./edit.component.css'],
 })
-export class EditComponent {
+export class EditComponent implements OnInit {
   editForm: FormGroup;
+  courseId: string | null = null;
+  course: any;
 
-  constructor(private fb: FormBuilder) {
+  constructor(
+    private fb: FormBuilder,
+    private coursesService: CoursesService,
+    private rout: ActivatedRoute
+  ) {
     this.editForm = this.fb.group({
       title: ['', [Validators.required, Validators.minLength(6)]],
       lecture: ['', [Validators.required]],
@@ -18,6 +26,21 @@ export class EditComponent {
       img: ['', [Validators.required, Validators.pattern('^https?://.*$')]],
       duration: ['', [Validators.required, Validators.min(1)]],
     });
+  }
+
+  ngOnInit(): void {
+      this.courseId=this.rout.snapshot.paramMap.get('id');
+      this.coursesService.getOneCourse(this.courseId).subscribe((data)=>{
+        this.course=data;
+        this.editForm.patchValue({
+          title: this.course.title,
+          lecture: this.course.lecture,
+          description: this.course.description,
+          price: this.course.price,
+          img: this.course.image,
+          duration: this.course.duration,
+        })
+      })
   }
 
   onSubmit() {
