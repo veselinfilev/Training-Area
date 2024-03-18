@@ -3,6 +3,25 @@
 </div>
 
 <div class="wrapper" *ngIf="courses">
+
+    <div class="filters">
+        <div class="btn-wrapper">
+            <button [class.selected]="isSelectedLatest" (click)="clickLatest()">
+                Latest
+            </button>
+            <button [class.selected]="isSelectedHightToLow" (click)="clickHightToLow()">
+                Price High to Low
+            </button>
+            <button [class.selected]="isSelectedLowToHeight" (click)="clickLowToHight()">
+                Price Low to High
+            </button>
+        </div>
+        <form [formGroup]="searchForm" (ngSubmit)="search()">
+            <input type="text" formControlName="searchQuery" placeholder="Search..." />
+            <button type="submit">Search</button>
+        </form>
+    </div>
+
     <div class="cards-container">
         <div class="card" *ngFor="let course of courses">
             <img src='{{course.image}}' alt="img">
@@ -13,9 +32,12 @@
             </div>
         </div>
     </div>
+
     <div class="pagination">
-        <button class="prev-btn">Previous</button>
-        <span>1</span>
-        <button class="next-btn">Next</button>
+        <button [class.disabled]="currentPage===0" [disabled]="currentPage===0" class="prev-btn"
+            (click)="clickPreviousBtn()">Previous</button>
+        <span>{{currentPage+1}}</span>
+        <button [class.disabled]="courses.length<6" [disabled]="courses.length<6" class="next-btn"
+            (click)="clickNextBtn()">Next</button>
     </div>
 </div>
