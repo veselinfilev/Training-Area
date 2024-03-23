@@ -13,6 +13,8 @@ import { ProfileComponent } from './profile/profile.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ErrorComponent } from './error/error.component';
+import { AuthGuard } from './auth.guard';
+import { GuestGuard } from './guest.guard';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,7 @@ import { ErrorComponent } from './error/error.component';
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [AuthGuard,GuestGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -7,6 +7,7 @@ import { DetailsComponent } from './details/details.component';
 import { EditComponent } from './edit/edit.component';
 import { CreateComponent } from './create/create.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { AuthGuard } from '../auth.guard';
 
 
 @NgModule({
@@ -20,6 +21,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     CommonModule,
     CoursesRoutingModule,
     ReactiveFormsModule
-  ]
+  ],
+  providers:[AuthGuard]
 })
 export class CoursesModule { }
