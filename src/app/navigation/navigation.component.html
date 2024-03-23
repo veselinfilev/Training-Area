@@ -2,12 +2,12 @@
     <nav class="nav-wrapper">
         <ul class="nav-links">
             <a routerLink="/home">Home</a>
-            <a routerLink="/create">Create</a>
+            <a routerLink="/create" *ngIf="isUser">Create</a>
             <a routerLink="/catalog">Catalog</a>
-            <a routerLink="/login">Login</a>
-            <a routerLink="/register">Register</a>
-            <a routerLink="/logout">Logout</a>
-            <a routerLink="/profile">Profile</a>
+            <a routerLink="/login" *ngIf="!isUser">Login</a>
+            <a routerLink="/register" *ngIf="!isUser">Register</a>
+            <a href="javascript:void(0)" (click)="handleLogoutClick()" *ngIf="isUser">Logout</a>
+            <a routerLink="/profile" *ngIf="isUser">Profile</a>
         </ul>
     </nav>
 </header>
