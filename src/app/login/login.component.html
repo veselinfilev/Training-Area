@@ -1,11 +1,12 @@
 <div class="login-container">
   <h2>Login</h2>
   <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-    <label for="username">Username:</label>
-    <input type="text" id="username" formControlName="username" >
+    <label for="email">Email:</label>
+    <input type="text" id="email" formControlName="email" >
 
-    <div *ngIf="loginForm.get('username')?.touched">
-      <div *ngIf="loginForm.get('username')?.errors?.['required']" style="color: red;">Username is required</div>
+    <div *ngIf="loginForm.get('email')?.touched">
+      <div *ngIf="loginForm.get('email')?.errors?.['required']" style="color: red;">Email is required</div>
+      <div *ngIf="loginForm.get('email')?.errors?.['email']" style="color: red;">Invalid email</div>
   </div>
 
     <label for="password">Password:</label>
