@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { CoursesService } from '../courses.service';
+import { Router } from '@angular/router';
+import Course from '../types';
 
 @Component({
   selector: 'app-create',
@@ -9,20 +12,26 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class CreateComponent {
   createForm: FormGroup;
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private coursesService:CoursesService,private router:Router) {
     this.createForm = this.fb.group({
       title: ['', [Validators.required,Validators.minLength(6)]],
       lecture: ['', [Validators.required]],
       description: ['', [Validators.required,Validators.minLength(10)]],
       price: ['', [Validators.required,Validators.min(1)]],
-      img: ['', [Validators.required,Validators.pattern('^https?:\/\/.*$')]],
+      image: ['', [Validators.required,Validators.pattern('^https?:\/\/.*$')]],
       duration: ['', [Validators.required,Validators.min(1)]],
     });
   }
 
   onSubmit() {
-    if (this.createForm.valid) {
-      console.log(this.createForm.value);
-    }
+    const { title, lecture, description, price, image, duration } = this.createForm.value;
+
+    this.coursesService.createCourse(title, lecture, description, price, image, duration).subscribe((response)=>{
+      const data = response as Course;
+      this.router.navigate([`/details/${data._id}`])
+    },error=>{
+      alert(error)
+    })
+    
   }
 }

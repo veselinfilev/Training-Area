@@ -41,13 +41,13 @@
         </div>
 
         <div>
-            <label for="img">Image URL:</label>
-            <input type="url" id="img" formControlName="img">
+            <label for="image">Image URL:</label>
+            <input type="url" id="image" formControlName="image">
         </div>
 
-        <div *ngIf="createForm.get('img')?.touched">
-            <div *ngIf="createForm.get('img')?.errors?.['required']" style="color: red;">Img is required</div>
-            <div *ngIf="createForm.get('img')?.errors?.['pattern']" style="color: red;">Invalid URL</div>
+        <div *ngIf="createForm.get('image')?.touched">
+            <div *ngIf="createForm.get('image')?.errors?.['required']" style="color: red;">Image is required</div>
+            <div *ngIf="createForm.get('image')?.errors?.['pattern']" style="color: red;">Invalid URL</div>
         </div>
 
         <div>
