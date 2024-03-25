@@ -61,3 +61,23 @@ a {
   background-color: #4bc496c5;
   border-radius: 1em;
 }
+
+.header-wrapper {
+  display: flex;
+  gap: 1em;
+}
+
+.header-wrapper h2 {
+  background-color: #312571c5;
+  padding: 0.5em;
+  border-radius: 0.5em;
+}
+
+.header-wrapper h2:hover {
+  background-color: #030113c5;
+  cursor: pointer;
+}
+
+.header-wrapper .active{
+  background-color: #030113c5;
+}

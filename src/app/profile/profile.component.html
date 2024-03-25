@@ -5,7 +5,11 @@
         <p>Name: Ivan</p>
         <p>Email: ivan@abv.bg</p>
     </div>
-    <h2>Purchased Courses</h2>
+    <div class="header-wrapper">
+        <h2 class="first" [ngClass]="{'active': isClickedFirst}" (click)="onClick($event)">Purchased Courses</h2>
+        <h2 class="second" [ngClass]="{'active': isClickedSecond}" (click)="onClick($event)">Created Courses</h2>
+    </div>
+
     <div class="cards-container">
         <div class="card">
             <img src="../../../backgroundImage.gif" alt="img">
