@@ -11,8 +11,11 @@
         <p>Duration: {{course.duration}}h</p>
         <p>Price: ${{course.price}}</p>
     </div>
+    <div class="sales-wrapper">
+        <p>Course sales: {{salesCount}}</p>
+    </div>
     <div class="button-container" *ngIf="!isGuest">
-        <a routerLink='/buy' *ngIf="!isGuest && !isOwner" >Buy</a>
+        <a href="javascript:void(0)" (click)="handleBuy()" *ngIf="!isGuest && !isOwner" >Buy</a>
         <a routerLink='/edit/{{course._id}}' *ngIf="isOwner" >Edit</a>
         <a href="javascript:void(0)" (click)="handelDelete()" *ngIf="isOwner" >Delete</a>
     </div>

@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import Course from './types';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class CoursesService {
   URL = 'http://localhost:3030/data/courses';
+  BuyUrl = 'http://localhost:3030/data/buy';
   pageInfo: string = '';
   sortParams: string = '?';
   searchParams: string = '';
@@ -84,7 +85,7 @@ export class CoursesService {
   }
 
   editCourse(
-    _id:string,
+    _id: string,
     title: string,
     lecture: string,
     description: string,
@@ -107,9 +108,53 @@ export class CoursesService {
     return this.http.put(`${this.URL}/${_id}`, body, { headers });
   }
 
-  buyCourse() {}
+  buyCourse(courseId: string | null) {
+    let token = '';
 
-  getBoughtCourses(userId: string) {}
+    if (localStorage.getItem('user')) {
+      token = JSON.parse(localStorage.getItem('user')!).accessToken;
+    }
 
-  getCreatedCourses(userId: string) {}
+    const body = {courseId};
+
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'X-Authorization': token,
+    });
+
+    return this.http.post(this.BuyUrl, body, { headers });
+  }
+
+  getBoughtCourses(): Observable<any[]> {
+    let userId: string = '';
+
+    if (localStorage.getItem('user')) {
+      userId = JSON.parse(localStorage.getItem('user')!)._id;
+    }
+
+    const encodeUserId = encodeURIComponent(`="${userId}"`);
+    const encodedCourses = encodeURIComponent('course=courseId:courses');
+
+    return this.http.get<any[]>(`${this.BuyUrl}?where=_ownerId${encodeUserId}&load=${encodedCourses}`)
+
+  }
+
+  getCreatedCourses() {
+    let userId: string = '';
+
+    if (localStorage.getItem('user')) {
+      userId = JSON.parse(localStorage.getItem('user')!)._id;
+    }
+
+    const encodeUserId = encodeURIComponent(`="${userId}"`);
+
+    return this.http.get(`${this.URL}?where=_ownerId${encodeUserId}`);
+  }
+
+  getCourseSales(courseId:string | null): Observable<any[]>{
+    const encodeWhereUrl = encodeURIComponent(`="${courseId}"`)
+
+   return this.http.get<any[]>(`${this.BuyUrl}?where=courseId${encodeWhereUrl}`)
+    
+  }
 }
