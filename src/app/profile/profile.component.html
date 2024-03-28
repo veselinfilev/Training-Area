@@ -2,8 +2,8 @@
     <h1>User Profile</h1>
     <div>
         <h2>Personal Information</h2>
-        <p>Name: Ivan</p>
-        <p>Email: ivan@abv.bg</p>
+        <p>Name: {{userInfo.username}}</p>
+        <p>Email: {{userInfo.email}}</p>
     </div>
     <div class="header-wrapper">
         <h2 class="first" [ngClass]="{'active': isClickedFirst}" (click)="onClick($event)">Purchased Courses</h2>
@@ -23,9 +23,15 @@
         </div>
     </div>
 
-    <div *ngIf="cardsInfo.length===0">
+    <div *ngIf="cardsInfo.length===0 && isClickedSecond">
         <div class="cards-container">
-            <h2>You haven't created cards</h2>
+            <h2>You haven't created courses</h2>
+        </div>
+    </div>
+
+    <div *ngIf="cardsInfo.length===0 && isClickedFirst">
+        <div class="cards-container">
+            <h2>You haven't purchased courses</h2>
         </div>
     </div>
 </div>
