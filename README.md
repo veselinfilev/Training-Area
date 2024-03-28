@@ -1,27 +1,151 @@
-# TrainingArea
+# Welcome to Training Area
+Welcome to our training area! This website provides you with the opportunity to buy courses shared by other users. Follow the instructions below to get started.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.12.
+## Project Summary
+The Training Area project aims to facilitate people who want to learn something new or those who want to pass on their knowledge by providing a platform for their purpose. The project is designed to be convenient and intuitive for both seekers and offerers.
 
-## Development server
+## How It Works
+- **Account Creation:** Users register to create their personalized account, enabling them to create listings and purchase courses from other users.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- **Listing a Course:** After registering or logging into their account, users can create a listing for their course and await potential buyers.
 
-## Code scaffolding
+- **Purchasing a Course:** Once registered or logged in, users can start buying courses uploaded by other users.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- **Profile Page:** On the profile page, users can find basic information, as well as a list of all the courses they have purchased or created.
 
-## Build
+## Project Structure
+The project follows a structured organization to improve maintainability and ease of navigation. Here's a brief overview of the main directories and their purposes:
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+* **/src:** Contains the user interface application created with Angular and server part.
+    * **/app:** Angular modules, components, services, styles, and application logic.
 
-## Running unit tests
+    - **/server.js:** A file that, when started, enables the use of the SoftUni Practice Server.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Feel free to explore each directory to gain more detailed information about its contents. This structure is designed to facilitate working on specific aspects of the application.
 
-## Running end-to-end tests
+## Run Locally
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+**Clone the project**
 
-## Further help
+```bash
+  
+git clone https://github.com/veselinfilev/Training-Area.git
+  
+```
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Go to the src directory
+
+```bash
+ 
+  cd src
+ 
+```
+
+Start the server
+
+```bash
+  
+  node server.js
+  
+```
+
+Go to the main directory
+
+```bash
+  
+  cd Trainig-Area
+  
+```
+
+Install dependencies
+
+```bash
+  
+  npm install
+  
+```
+
+Start application
+```bash
+  
+  ng serve
+ 
+```
+
+## API Endpoints
+
+  ### Authentication
+
+○ **Register User**
+
+  + **POST - /users**
+
+    + **Request:**
+
+    ```bash
+    {
+      email,
+      username,
+      password
+    }
+    ```
+
+○ **Login User**
+
+  + **POST - /users**
+
+    + **Request:**
+
+    ```bash
+    {
+      email,
+      password
+    }
+    ```
+
+### Course Management    
+
+○ **Create Course**
+
+  + **POST - /data/courses**
+
+    + **Request:**
+
+    ```bash
+    {
+      title,
+      lecture,
+      description,
+      price,
+      image,
+      duration
+    }
+    ```
+
+  ○ **Update Course**
+
+  + **PUT - /data/courses/:courseId**
+
+    + **Request:**
+
+    ```bash
+    {
+      _id,
+      title,
+      lecture,
+      description,
+      price,
+      image,
+      duration
+    }
+    ```
+
+  ○ **Delete Course**
+
+  + **DELETE - /data/courses/:courseId**  
+
+   ○ **Get Course**
+
+  + **GET - /data/courses/:courseId** 
+
+ **Enjoy** 😊
