@@ -115,7 +115,7 @@ export class CoursesService {
       token = JSON.parse(localStorage.getItem('user')!).accessToken;
     }
 
-    const body = {courseId};
+    const body = { courseId };
 
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
@@ -135,8 +135,7 @@ export class CoursesService {
     const encodeUserId = encodeURIComponent(`="${userId}"`);
     const encodedCourses = encodeURIComponent('course=courseId:courses');
 
-    return this.http.get<any[]>(`${this.BuyUrl}?where=_ownerId${encodeUserId}&load=${encodedCourses}`)
-
+    return this.http.get<any[]>(`${this.BuyUrl}?where=_ownerId${encodeUserId}&load=${encodedCourses}`);
   }
 
   getCreatedCourses() {
@@ -151,10 +150,23 @@ export class CoursesService {
     return this.http.get(`${this.URL}?where=_ownerId${encodeUserId}`);
   }
 
-  getCourseSales(courseId:string | null): Observable<any[]>{
-    const encodeWhereUrl = encodeURIComponent(`="${courseId}"`)
+  getCourseSales(courseId: string | null): Observable<any[]> {
+    const encodeWhereUrl = encodeURIComponent(`="${courseId}"`);
 
-   return this.http.get<any[]>(`${this.BuyUrl}?where=courseId${encodeWhereUrl}`)
-    
+    return this.http.get<any[]>(
+      `${this.BuyUrl}?where=courseId${encodeWhereUrl}`
+    );
+  }
+
+  getHasAlreadyBought(courseId: string) {
+    let userId: string = '';
+
+    if (localStorage.getItem('user')) {
+      userId = JSON.parse(localStorage.getItem('user')!)._id;
+    }
+
+    const encodeQuery = encodeURIComponent(`="${userId}" AND courseId="${courseId}"`);
+
+    return this.http.get<{}[]>(`${this.BuyUrl}?where=_ownerId${encodeQuery}`);
   }
 }

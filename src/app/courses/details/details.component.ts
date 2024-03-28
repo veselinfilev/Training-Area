@@ -15,6 +15,7 @@ export class DetailsComponent implements OnInit {
   isGuest: boolean = true;
   userId: string = '';
   salesCount: number = 0;
+  hasCurrentUserAlreadyBought:boolean = false;
 
   constructor(
     private coursesServices: CoursesService,
@@ -32,6 +33,7 @@ export class DetailsComponent implements OnInit {
     });
 
     this.getBuyCount();
+    this.getHasCurrentUserAlreadyBought();
   }
 
   handelDelete(): void {
@@ -74,4 +76,13 @@ export class DetailsComponent implements OnInit {
       this.salesCount = v.length;
     });
   }
+
+  getHasCurrentUserAlreadyBought() {
+    const courseId = this.rout.snapshot.paramMap.get('id');
+
+    this.coursesServices.getHasAlreadyBought(courseId!).subscribe((v) => {
+      this.hasCurrentUserAlreadyBought = v.length>0? true : false
+    });
+  }
+
 }
