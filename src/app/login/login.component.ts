@@ -10,6 +10,7 @@ import {  Router } from '@angular/router';
 })
 export class LoginComponent {
   loginForm: FormGroup;
+  errorMessage:string = '';
 
   constructor(private fb: FormBuilder, private authService: AuthService,private router:Router) {
     this.loginForm = this.fb.group({
@@ -28,7 +29,11 @@ export class LoginComponent {
       this.router.navigate(['/'])
       
     },error =>{
-      alert(error.error.message);
+      if(error.error.message=== 'Login or password don\'t match'){
+        this.errorMessage = 'Email or password don\'t match'
+      }else{
+        this.errorMessage = error.error.message;
+      }
     })
   }
 }

@@ -16,6 +16,10 @@
       <div *ngIf="loginForm.get('password')?.errors?.['required']" style="color: red;">Password is required</div>
   </div>
 
+  <div class="error" *ngIf="errorMessage">
+    <p>{{errorMessage}}</p>
+  </div>
+
     <button type="submit" [class.disabled]="loginForm.invalid" [disabled]="loginForm.invalid">Login</button>
   </form>
 
