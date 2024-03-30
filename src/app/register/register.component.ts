@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 })
 export class RegisterComponent {
   registerForm: FormGroup;
+  errorMessage:string = '';
 
   constructor(
     private fb: FormBuilder,
@@ -48,7 +49,7 @@ export class RegisterComponent {
         this.router.navigate(['/']);
       },
       (error) => {
-        alert(error.error.message);
+        this.errorMessage = error.error.message;
       }
     );
   }

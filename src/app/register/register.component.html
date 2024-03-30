@@ -33,6 +33,10 @@
             <div *ngIf="registerForm.errors?.['mismatch']" style="color: red;">Passwords do not match</div>
         </div>
 
+        <div class="error" *ngIf="errorMessage">
+            <p>{{errorMessage}}</p>
+        </div>
+
         <button type="submit" [class.disabled]="registerForm.invalid" [disabled]="registerForm.invalid">Register</button>
     </form>
 

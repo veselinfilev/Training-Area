@@ -46,3 +46,8 @@ button:hover {
 a{
   color: blue;
 }
+
+.error{
+  font-size: 1.2em;
+  color: red;
+}
