@@ -15,6 +15,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ErrorComponent } from './error/error.component';
 import { AuthGuard } from './auth.guard';
 import { GuestGuard } from './guest.guard';
+import { OwnerGuard } from './owner.guard';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,7 @@ import { GuestGuard } from './guest.guard';
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [AuthGuard,GuestGuard],
+  providers: [AuthGuard,GuestGuard,OwnerGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

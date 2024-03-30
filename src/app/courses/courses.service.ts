@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, of, switchMap } from 'rxjs';
+import Course from './types';
 
 @Injectable({
   providedIn: 'root',
@@ -169,4 +170,23 @@ export class CoursesService {
 
     return this.http.get<{}[]>(`${this.BuyUrl}?where=_ownerId${encodeQuery}`);
   }
+
+  isOwner(courseId: string): Observable<{ haveUser: boolean; isOwner: boolean }> {
+    let userId: string = '';
+    let courseOwner: string = '';
+
+    if (localStorage.getItem('user')) {
+      userId = JSON.parse(localStorage.getItem('user')!)._id;
+    }
+
+    return this.getOneCourse(courseId).pipe(
+      switchMap((v: any) => {
+        courseOwner = (v as Course)._ownerId;
+        
+        return of({ haveUser: !!userId, isOwner: userId === courseOwner });
+      })
+    );
+
+  }
+
 }
