@@ -8,6 +8,7 @@ import { EditComponent } from './edit/edit.component';
 import { CreateComponent } from './create/create.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AuthGuard } from '../auth.guard';
+import { ConfirmationModalComponent } from './confirmation-modal/confirmation-modal.component';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { AuthGuard } from '../auth.guard';
     CatalogComponent,
     DetailsComponent,
     EditComponent,
-    CreateComponent
+    CreateComponent,
+    ConfirmationModalComponent
   ],
   imports: [
     CommonModule,

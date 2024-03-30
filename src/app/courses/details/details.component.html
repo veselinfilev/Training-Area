@@ -24,3 +24,5 @@
         <p class="success-bought" *ngIf="hasCurrentUserAlreadyBought">Already successfully bought the current course</p>
     </div>
 </div>
+
+<app-confirmation-modal *ngIf="isModalVisible" (confirmed)="handleConfirm($event)"/>

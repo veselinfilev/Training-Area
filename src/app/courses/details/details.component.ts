@@ -15,8 +15,9 @@ export class DetailsComponent implements OnInit {
   isGuest: boolean = true;
   userId: string = '';
   salesCount: number = 0;
-  hasCurrentUserAlreadyBought:boolean = false;
-  errorMessage:string = '';
+  hasCurrentUserAlreadyBought: boolean = false;
+  errorMessage: string = '';
+  isModalVisible: boolean = false;
 
   constructor(
     private coursesServices: CoursesService,
@@ -38,19 +39,29 @@ export class DetailsComponent implements OnInit {
   }
 
   handelDelete(): void {
+    this.isModalVisible = true;
+  }
+
+  handleConfirm(confirmation: boolean) {
     const courseId = this.rout.snapshot.paramMap.get('id');
-    this.coursesServices.deleteCourse(courseId).subscribe(
-      () => {
-        this.router.navigate(['/catalog']);
-      },
-      (error) => {
-        if ((error.error.code = 403)) {
-          this.errorMessage = "You don't nave permission to delete this course";
-        } else {
-          this.errorMessage = error.error.message;
+
+    if (confirmation) {
+      this.coursesServices.deleteCourse(courseId).subscribe(
+        () => {
+          this.router.navigate(['/catalog']);
+        },
+        (error) => {
+          this.isModalVisible = false;
+          if ((error.error.code = 403)) {
+            this.errorMessage =
+              "You don't nave permission to delete this course";
+          } else {
+            this.errorMessage = error.error.message;
+          }
         }
-      }
-    );
+      );
+    }
+    this.isModalVisible = false;
   }
 
   handleBuy(): void {
@@ -82,8 +93,7 @@ export class DetailsComponent implements OnInit {
     const courseId = this.rout.snapshot.paramMap.get('id');
 
     this.coursesServices.getHasAlreadyBought(courseId!).subscribe((v) => {
-      this.hasCurrentUserAlreadyBought = v.length>0? true : false
+      this.hasCurrentUserAlreadyBought = v.length > 0 ? true : false;
     });
   }
-
 }
