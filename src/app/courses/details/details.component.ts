@@ -48,7 +48,7 @@ export class DetailsComponent implements OnInit {
     if (confirmation) {
       this.coursesServices.deleteCourse(courseId).subscribe(
         () => {
-          this.router.navigate(['/catalog']);
+          this.router.navigate(['/course/catalog']);
         },
         (error) => {
           this.isModalVisible = false;

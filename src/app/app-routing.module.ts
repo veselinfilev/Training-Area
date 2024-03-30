@@ -15,6 +15,7 @@ const routes: Routes = [
   {path:'login', component:LoginComponent,canActivate:[GuestGuard]},
   {path:'register', component:RegisterComponent,canActivate:[GuestGuard]},
   {path:'profile',component:ProfileComponent,canActivate:[AuthGuard]},
+  {path:'course',loadChildren: () => import('./courses/courses.module').then(m => m.CoursesModule)},
   {path:'**',component:ErrorComponent}
 ];
 

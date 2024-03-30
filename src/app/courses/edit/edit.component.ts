@@ -51,7 +51,7 @@ export class EditComponent implements OnInit {
       .editCourse( courseId!, title, lecture, description, price, image, duration)
       .subscribe(
         () => {
-          this.router.navigate([`details/${courseId}`]);
+          this.router.navigate([`/course/details/${courseId}`]);
         },
         (error) => {
           alert(error);

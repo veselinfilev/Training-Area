@@ -28,7 +28,7 @@ export class CreateComponent {
 
     this.coursesService.createCourse(title, lecture, description, price, image, duration).subscribe((response)=>{
       const data = response as Course;
-      this.router.navigate([`/details/${data._id}`])
+      this.router.navigate([`/course/details/${data._id}`])
     },error=>{
       alert(error)
     })

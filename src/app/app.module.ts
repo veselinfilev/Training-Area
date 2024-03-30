@@ -8,7 +8,6 @@ import { FooterComponent } from './footer/footer.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { HomeComponent } from './home/home.component';
-import { CoursesModule } from './courses/courses.module';
 import { ProfileComponent } from './profile/profile.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
@@ -30,7 +29,6 @@ import { OwnerGuard } from './owner.guard';
   ],
   imports: [
     BrowserModule,
-    CoursesModule,
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule
