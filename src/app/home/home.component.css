@@ -11,6 +11,7 @@ article{
     background-color: rgba(50, 50, 50, 0.5);
     width: 65em;
     padding: 5em;
+    border-radius: 1em;
 }
 
 h1{
