@@ -16,6 +16,7 @@ export class DetailsComponent implements OnInit {
   userId: string = '';
   salesCount: number = 0;
   hasCurrentUserAlreadyBought:boolean = false;
+  errorMessage:string = '';
 
   constructor(
     private coursesServices: CoursesService,
@@ -44,9 +45,9 @@ export class DetailsComponent implements OnInit {
       },
       (error) => {
         if ((error.error.code = 403)) {
-          alert("You don't nave permission to delete this course");
+          this.errorMessage = "You don't nave permission to delete this course";
         } else {
-          alert(error.error.message);
+          this.errorMessage = error.error.message;
         }
       }
     );

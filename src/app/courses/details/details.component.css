@@ -50,3 +50,8 @@ p {
 .success-bought{
   color: rgb(70, 186, 70);
 }
+
+.error{
+  font-size: 1.2em;
+  color: red;
+}
